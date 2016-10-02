@@ -3,7 +3,7 @@
 [![Build status][travis-image]][travis-url]
 [![Dependency status][dependency-image]][dependency-url]
 
-* Студент: [Дима Ковалёв](https://htmlacademy.ru/profile/id38378).
+* Студент: [Дарья Смирнова](https://htmlacademy.ru/profile/id88440).
 * Наставник: `Unknown`.
 
 ### Немного о себе
