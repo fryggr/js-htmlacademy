@@ -97,6 +97,7 @@
       // Смещение первого штриха от начала линии.
       this._ctx.lineDashOffset = 7;
 
+
       // Сохранение состояния канваса.
       // Подробней см. строку 132.
       this._ctx.save();
@@ -104,20 +105,51 @@
       // Установка начальной точки системы координат в центр холста.
       this._ctx.translate(this._container.width / 2, this._container.height / 2);
 
+      //this._ctx.beginPath();
+
+    //  this._ctx.closePath();
+
+      //this._ctx.fill();
+this._ctx.globalCompositeOperation = "xor";
+      this._ctx.rect(-225, -160, 450, 320);
+      this._ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+      this._ctx.fill();
+      this._ctx.fillRect(
+          (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2 -3,
+          (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2 -3,
+          this._resizeConstraint.side - this._ctx.lineWidth / 2 + 6,
+          this._resizeConstraint.side - this._ctx.lineWidth / 2 + 6);
+
+
       var displX = -(this._resizeConstraint.x + this._resizeConstraint.side / 2);
       var displY = -(this._resizeConstraint.y + this._resizeConstraint.side / 2);
       // Отрисовка изображения на холсте. Параметры задают изображение, которое
       // нужно отрисовать и координаты его верхнего левого угла.
       // Координаты задаются от центра холста.
+      this._ctx.globalCompositeOperation = "destination-over";
       this._ctx.drawImage(this._image, displX, displY);
 
+      //this._ctx.clearRect((-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2, (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2, this._resizeConstraint.side - this._ctx.lineWidth / 2, this._resizeConstraint.side - this._ctx.lineWidth / 2);
+      //this._ctx.globalCompositeOperation = "xor";
+
+    //  this._ctx.fillRect(-225, -160, 450, 320);
+      //this._ctx.clearRect((-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2, (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2, this._resizeConstraint.side - this._ctx.lineWidth / 2, this._resizeConstraint.side - this._ctx.lineWidth / 2);
+
+      //this._ctx.rect((-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2, (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2, this._resizeConstraint.side - this._ctx.lineWidth / 2, this._resizeConstraint.side - this._ctx.lineWidth / 2);
+    //  this._ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+      //this._ctx.fill();
       // Отрисовка прямоугольника, обозначающего область изображения после
       // кадрирования. Координаты задаются от центра.
+      this._ctx.globalCompositeOperation = "source-over";
       this._ctx.strokeRect(
           (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2,
           (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2,
           this._resizeConstraint.side - this._ctx.lineWidth / 2,
           this._resizeConstraint.side - this._ctx.lineWidth / 2);
+
+
+      //this._ctx.clearRect((-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2, (-this._resizeConstraint.side / 2) - this._ctx.lineWidth / 2, this._resizeConstraint.side - this._ctx.lineWidth / 2, this._resizeConstraint.side - this._ctx.lineWidth / 2);
+      //this._ctx.fillStyle = 'rgba(0, 0, 0, 0)';
 
       // Восстановление состояния канваса, которое было до вызова ctx.save
       // и последующего изменения системы координат. Нужно для того, чтобы
